@@ -33,6 +33,8 @@ const IearnAdapter = artifacts.require('IearnAdapter');
 const KeeperDaoAssetAdapter = artifacts.require('KeeperDaoAssetAdapter');
 const KimchiStakingAdapter = artifacts.require('KimchiStakingAdapter');
 const KyberAdapter = artifacts.require('KyberAdapter');
+const LinkswapAdapter = artifacs.require('LinkswapAdapter');
+const LinkswapStakingAdapter = artifacs.require('LinkswapStakingAdapter');
 const LivepeerStakingAdapter = artifacts.require('LivepeerStakingAdapter');
 const ChaiAdapter = artifacts.require('ChaiAdapter');
 const DSRAdapter = artifacts.require('DSRAdapter');
@@ -78,6 +80,7 @@ const DodoTokenAdapter = artifacts.require('DodoTokenAdapter');
 const IdleTokenAdapter = artifacts.require('IdleTokenAdapter');
 const IearnTokenAdapter = artifacts.require('IearnTokenAdapter');
 const KeeperDaoTokenAdapter = artifacts.require('IearnTokenAdapter');
+const LinkswapTokenAdapter = artifacs.require('LinkswapTokenAdapter');
 const ChaiTokenAdapter = artifacts.require('ChaiTokenAdapter');
 const MelonTokenAdapter = artifacts.require('MelonTokenAdapter');
 const MstableTokenAdapter = artifacts.require('MstableTokenAdapter');
@@ -87,6 +90,8 @@ const PieDAOPieTokenAdapter = artifacts.require('PieDAOPieTokenAdapter');
 const PoolTogetherTokenAdapter = artifacts.require('PoolTogetherTokenAdapter');
 const TokenSetsTokenAdapter = artifacts.require('TokenSetsTokenAdapter');
 const TokenSetsV2TokenAdapter = artifacts.require('TokenSetsV2TokenAdapter');
+const TubeProtocolAdapter = artifacs.require('TubeProtocolAdapter');
+const MustStakingAdapter = artifacs.require('MustStakingAdapter');
 const UniswapV1TokenAdapter = artifacts.require('UniswapV1TokenAdapter');
 const UniswapV2TokenAdapter = artifacts.require('UniswapV2TokenAdapter');
 const AdapterRegistry = artifacts.require('AdapterRegistry');
@@ -264,6 +269,35 @@ const yfiAddress = '0x0bc529c00C6401aEF6D220BE8C6Ea1667F6Ad93e';
 const balancerDai98Yfi2Address = '0x60626db611a9957C1ae4Ac5b7eDE69e24A3B76c5';
 const balancerYfi2yCrv98Address = '0x95C4B6C7CfF608c0CA048df8b81a484aA377172B';
 
+const yflAddress = '0x28cb7e841ee97947a86B06fA4090C8451f64c0be';
+const yflusdAddress = '0x7b760d06e401f85545f3b50c44bf5b05308b7b62';
+const syflAddress = '0x8282df223ac402d04b2097d16f758af4f70e7db0';
+const cfiAddress = '0x63b4f3e3fa4e438698ce330e365e831f7ccd1ef4';
+const masqAddress = '0x06F3C323f0238c72BF35011071f2b5B7F43A054c';
+const dpiAddress = '0x1494ca1f11d487c2bbe4543e90080aeba4ba3c2b';
+const celAddress = '0xaaaebe6fe48e54f431b0c390cfaf0b017d09d42d';
+const yaxAddress = '0xb1dc9124c395c1e97773ab855d66e879f053a289';
+const gswapAddress = '0xaac41EC512808d64625576EDdd580e7Ea40ef8B2';
+
+const lslpYflLink = '0x189a730921550314934019d184ec05726881d481';
+const lslpLinkYflusd = '0x6cd7817e6f3f52123df529e1edf5830240ce48c1';
+const lslpYflusdWeth = '0x195734d862dfb5380eeda0acd8acf697ea95d370';
+const lslpLinkSyfl = '0x74c89f297b1dc87f927d9432a4eeea697e6f89a5';
+const lslpSyflWeth = '0x3315351f0b20595777a28054ef3d514bdc37463d';
+const lslpDpiLink = '0x017fad4b7a54c1ace95ca614954e4d0d12cdb27e';
+const lslpLinkGswap = '0xdef0cef53e0d4c6a5e568c53edcf45ceb33dbe46';
+const lslpLinkCel = '0x639916bb4b29859fadf7a272185a3212157f8ce1';
+const lslpMasqWeth = '0x37cee65899da4b1738412814155540c98dfd752c';
+const lslpBusdLink = '0x983c9a1bcf0eb980a232d1b17bffd6bbf68fe4ce';
+const lslpLinkYax = '0x626b88542495d2e341d285969f8678b99cd91da7';
+const lslpYaxWeth = '0x21dee38170F1e1F26baFf2C30C0fc8F8362b6961';
+const lslpLinkCfi = '0xf68c01198cddeafb9d2ea43368fc9fa509a339fa';
+const lslpLinkUsdc = '0x9d996bDD1F65C835EE92Cd0b94E15d886EF14D63';
+const lslpLinkUsdt = '0xf36c9fc3c2abe4132019444aff914fc8dc9785a9';
+const lslpYflWeth = '0x7e5A536F3d79791E283940ec379CEE10C9C40e86';
+const lslpLinkAzuki = '0xB7Cd446a2a80d4770C6bECde661B659cFC55acf5';
+const lslpLinkDoki = '0xbe755C548D585dbc4e3Fe4bcD712a32Fd81e5Ba0';
+
 const chaiAddress = '0x06AF07097C9Eeb7fD685c692751D5C66dB49c215';
 
 const mUsdAddress = '0xe2f2a5C287993345a840Db3B0845fbC70f5935a5';
@@ -391,6 +425,11 @@ const pickleUniswapWethDaiJarAddress = '0xf79Ae82DCcb71ca3042485c85588a3E0C395D5
 const pickleUniswapWethUsdcJarAddress = '0x46206E9BDaf534d057be5EcF231DaD2A1479258B';
 const pickleUniswapWethUsdtJarAddress = '0x3a41AB1e362169974132dEa424Fb8079Fd0E94d8';
 const pickleThreeCrvJarAddress = '0x2385D31f1EB3736bE0C3629E6f03C4b3cd997Ffd';
+
+const tubeAddress = '0x85BC2E8Aaad5dBc347db49Ea45D95486279eD918';
+
+const mustStakingAddress = '0x048Dda990f581e80EFfc72E4e1996AE548f8d64C';
+const mustAddress = '0x9C78EE466D6Cb57A4d01Fd887D2b5dFb2D46288f';
 
 const aaveAssetAdapterTokens = [
   aDaiAddress,
@@ -847,8 +886,49 @@ const yearnStakingV2AdapterTokens = [
   yfiAddress,
   yCrvAddress,
 ];
+const LinkswapStakingAdapterTokens = [
+  yflAddress,
+  yflusdAddress,
+  syflAddress,
+  wethAddress,
+  linkAddress,
+  busdAddress,
+  usdcAddress,
+  usdtAddress,
+  cfiAddress,
+  masqAddress,
+  dpiAddress,
+  celAddress,
+  yaxAddress,
+  gswapAddress,
+  lslpYflWeth,
+  lslpYflLink,
+  lslpLinkYflusd,
+  lslpYflusdWeth,
+  lslpLinkSyfl,
+  lslpSyflWeth,
+  lslpBusdLink,
+  lslpLinkUsdc,
+  lslpLinkUsdt,
+  lslpLinkCfi,
+  lslpMasqWeth,
+  lslpDpiLink,
+  lslpLinkCel,
+  lslpLinkYax,
+  lslpYaxWeth,
+  lslpLinkGswap,
+  lslpLinkAzuki,
+  lslpLinkDoki,
+];
 const zrxAdapterTokens = [
   zrxAddress,
+];
+const tubeProtocolAdapterTokens = [
+  tubeAddress,
+];
+const mustStakingAdapterTokens = [
+  mustAddress,
+  mustStakingAddress,
 ];
 
 let protocolNames = [];
@@ -1123,6 +1203,21 @@ module.exports = async (deployer, network, accounts) => {
     'Yield aggregator for lending platforms',
     'iearn.finance',
     'protocol-icons.s3.amazonaws.com/iearn.png',
+    '0',
+  ]);
+
+  await deployer.deploy(LinkswapAdapter, { from: accounts[0] });
+  await deployer.deploy(LinkswapStakingAdapter, { from: accounts[0] });
+  adapters.push(
+    [LinkswapAdapter.address, LinkswapStakingAdapter.address],
+  );
+  tokens.push([LinkswapStakingAdapterTokens]);
+  protocolNames.push('LINKSWAP');
+  metadata.push([
+    'LINKSWAP',
+    'YF Link community-governed automated market maker',
+    'linkswap.app',
+    'protocol-icons.s3.amazonaws.com/yflink.png',
     '0',
   ]);
 
@@ -1407,6 +1502,30 @@ module.exports = async (deployer, network, accounts) => {
     '0',
   ]);
 
+  await deployer.deploy(TubeProtocolAdapter, { from: accounts[0] });
+  adapters.push([TubeProtocolAdapter.address]);
+  tokens.push([tubeProtocolAdapterTokens]);
+  protocolNames.push('Tube');
+  metadata.push([
+    'Tube',
+    'MUST staking contract',
+    'cometh.io',
+    'www.cometh.io/alembic.png',
+    '0',
+  ]);
+
+  await deployer.deploy(MustStakingAdapter, { from: accounts[0] });
+  adapters.push([MustStakingAdapter.address]);
+  tokens.push([mustStakingAdapterTokens]);
+  protocolNames.push('Staking reward');
+  metadata.push([
+    'Staking reward',
+    'MUST liquidity providers staking reward',
+    'cometh.io',
+    'www.cometh.io/alembic.png',
+    '0',
+  ]);
+
   await deployer.deploy(UniswapV1Adapter, { from: accounts[0] });
   adapters.push([UniswapV1Adapter.address]);
   tokens.push([[]]);
@@ -1586,6 +1705,12 @@ module.exports = async (deployer, network, accounts) => {
     .then(() => {
       tokenAdapters.push(
         UniswapV2TokenAdapter.address,
+      );
+    });
+  await deployer.deploy(LinkswapTokenAdapter, { from: accounts[0] })
+    .then(() => {
+      tokenAdapters.push(
+        LinkswapTokenAdapter.address,
       );
     });
   await deployer.deploy(AdapterRegistry, { from: accounts[0] })
